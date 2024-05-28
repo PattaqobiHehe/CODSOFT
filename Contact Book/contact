@@ -2,10 +2,10 @@ from future.moves import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 
-window=tk.Tk()
-window.geometry("800x680")
-window.title("Contacts")
-window.config(bg="#101010")
+master=tk.Tk()
+master.geometry("800x680")
+master.title("Contacts")
+master.config(bg="#101010")
 
 
 
@@ -107,97 +107,102 @@ def save_edit(index):
     else:
         messagebox.showwarning("Warning", "Name cannot be empty")
 
-font_title = ("Helvetica", 30, "bold")
-font_label = ("Helvetica", 18, "bold")
-font_entry = ("Helvetica", 18)
-font_button = ("Helvetica", 14, "bold")
+font_title = ("Garamond", 50, "bold")
+font_label = ("Century Gothic", 18, "bold")
+font_entry = ("Trebuchet MS", 18)
+font_button = ("Bookman Old Style", 14, "bold")
 font_listbox = ("Helvetica", 14)
 
 
-
-heading_label=tk.Label(window,
+#Heading 'Contact book'
+heading_label=tk.Label(master,
                        text="Contact Book",
                        font=font_title,
                        foreground="white" ,
                        bg="#101010")
-heading_label.place(x=270,y=3)
+heading_label.place(x=150,y=3)
 
-name_label=tk.Label(window,
+#Name label and entry
+name_label=tk.Label(master,
                     text="Name:",
                     font=font_label,
                     foreground="white" ,
                     bg="#101010")
 name_label.place(x=50, y=100)
 
-name_entry=tk.Entry(window,
+name_entry=tk.Entry(master,
                 font=font_entry,
                 bg="#404040",
                 fg="white",
                 insertbackground="white",
-                width=30)
+                width=40)
 
-name_entry.place(x=200, y=100)
+name_entry.place(x=165, y=100)
 
+#Phone label and entry
 
-phone_label=tk.Label(window,
+phone_label=tk.Label(master,
                     text="Phone:",
                     font=font_label,
                     foreground="white" ,
                     bg="#101010")
 phone_label.place(x=50, y=150)
 
-phone_entry=tk.Entry(window,
+phone_entry=tk.Entry(master,
                 font=font_entry,
                 bg="#404040",
                 fg="white",
                 insertbackground="white",
-                width=30)
-phone_entry.place(x=200, y=150)
+                width=40)
+phone_entry.place(x=165, y=150)
 
-email_label=tk.Label(window,
+#Email label and entry
+email_label=tk.Label(master,
                     text="Email:",
                     font=font_label,
                     foreground="white" ,
                     bg="#101010")
 email_label.place(x=50, y=200)
 
-email_entry=tk.Entry(window,
+email_entry=tk.Entry(master,
                 font=font_entry,
                 bg="#404040",
                 fg="white",
                 insertbackground="white",
-                width=30)
-email_entry.place(x=200, y=200)
+                width=40)
+email_entry.place(x=165, y=200)
 
-address_label=tk.Label(window,
+
+#Address label and entry
+address_label=tk.Label(master,
                     text="Address:",
                     font=font_label,
                     foreground="white" ,
                     bg="#101010")
 address_label.place(x=50, y=250)
 
-address_entry=tk.Entry(window,
+address_entry=tk.Entry(master,
                 font=font_entry,
                 bg="#404040",
                 fg="white",
                 insertbackground="white",
-                width=30)
-address_entry.place(x=200, y=250)
+                width=40)
+address_entry.place(x=165, y=250)
 
 
 #Search Bar
-search_label = tk.Label(window, text="Search:", font=font_label, foreground="white", bg="#101010")
+search_label = tk.Label(master, text="Search:", font=font_label, foreground="white", bg="#101010")
 search_label.place(x=50, y=320)
-search_entry = tk.Entry(window, font=font_entry, width=30, bg="#404040", fg="white", insertbackground="white")
-search_entry.place(x=200, y=320)
+search_entry = tk.Entry(master, font=font_entry, width=30, bg="#404040", fg="white", insertbackground="white")
+search_entry.place(x=165, y=320)
 
-search_button = tk.Button(window, text="Search", font=font_button, relief="raised", borderwidth=4, width=14, bg="#505050", fg="white", activebackground="#104E8B", command=search_contacts)
+search_button = tk.Button(master, text="Search", font=font_button, relief="raised", borderwidth=4, width=14, bg="#505050", fg="white", activebackground="#104E8B", command=search_contacts)
 search_button.place(x=600, y=315)
 
 
 #Buttons for adding contacts,removing and details of them
 
-add_button=tk.Button(window,
+add_button=tk.Button(master,
                      text="Add Contact",
                      command=add_contact,
                      font=font_button,
@@ -211,7 +216,7 @@ add_button=tk.Button(window,
 add_button.place(x=50, y=370)
 
 #delete button
-delete_button=tk.Button(window,
+delete_button=tk.Button(master,
                      text="Delete",
                      command=delete_contact,
                      font=font_button,
@@ -224,7 +229,7 @@ delete_button=tk.Button(window,
 
 delete_button.place(x=250, y=370)
 
-view_button=tk.Button(window,
+view_button=tk.Button(master,
                      text="View Details",
                      command=view_contacts,
                      font=font_button,
@@ -236,7 +241,7 @@ view_button=tk.Button(window,
                      activebackground="#104E8B")
 view_button.place(x=400, y=370)
 
-edit_button = tk.Button(window,
+edit_button = tk.Button(master,
                         text="Edit Contact",
                         command=edit_contact,
                         font=font_button,
@@ -248,7 +253,7 @@ edit_button = tk.Button(window,
                         activebackground="#FF8C00")
 edit_button.place(x=600, y=370)
 
-contacts_listbox=tk.Listbox(window,
+contacts_listbox=tk.Listbox(master,
                             font=font_listbox,
                             width=50, 
                             height=10, 
@@ -260,4 +265,4 @@ contacts_listbox.place(x=50,y=430)
 
 
 
-window.mainloop()
+master.mainloop()
